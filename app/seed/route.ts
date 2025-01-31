@@ -101,22 +101,87 @@
 //   return insertedRevenue;
 // }
 
-export async function GET() {
-  return Response.json({
-    message:
-      'Uncomment this file and remove this line. You can delete this file when you are finished.',
-  });
-  // try {
-  //   await client.sql`BEGIN`;
-  //   await seedUsers();
-  //   await seedCustomers();
-  //   await seedInvoices();
-  //   await seedRevenue();
-  //   await client.sql`COMMIT`;
+// export async function GET() {
+//   return Response.json({
+//     message:
+//       'Uncomment this file and remove this line. You can delete this file when you are finished.',
+//   });
+// try {
+//   await client.sql`BEGIN`;
+//   await seedUsers();
+//   await seedCustomers();
+//   await seedInvoices();
+//   await seedRevenue();
+//   await client.sql`COMMIT`;
 
-  //   return Response.json({ message: 'Database seeded successfully' });
-  // } catch (error) {
-  //   await client.sql`ROLLBACK`;
-  //   return Response.json({ error }, { status: 500 });
-  // }
-}
+//   return Response.json({ message: 'Database seeded successfully' });
+// } catch (error) {
+//   await client.sql`ROLLBACK`;
+//   return Response.json({ error }, { status: 500 });
+// }
+// }
+//
+// import {createClient} from '@supabase/supabase-js';
+// import {invoices, customers, revenue, users} from '../lib/placeholder-data';
+//
+// const supabaseUrl = process.env.SUPABASE_URL || '';
+// const supabaseKey = process.env.SUPABASE_KEY || '';
+// const supabase = createClient(supabaseUrl, supabaseKey);
+//
+// async function seedUsers() {
+//     const {data, error} = await supabase.from('users').upsert(users.map(user => ({
+//         id: user.id,
+//         name: user.name,
+//         email: user.email,
+//         password: user.password, // Consider hashing the password before inserting
+//     })));
+//
+//     if (error) {
+//         console.error("Error al insertar usuarios:", error);
+//         throw error;
+//     }
+//     return data;
+// }
+//
+// async function seedInvoices() {
+//     const {data, error} = await supabase.from('invoices').upsert(invoices);
+//
+//     if (error) {
+//         console.error("Error al insertar facturas:", error);
+//         throw error;
+//     }
+//     return data;
+// }
+//
+// async function seedCustomers() {
+//     const {data, error} = await supabase.from('customers').upsert(customers);
+//
+//     if (error) {
+//         console.error("Error al insertar clientes:", error);
+//         throw error;
+//     }
+//     return data;
+// }
+//
+// async function seedRevenue() {
+//     const {data, error} = await supabase.from('revenue').upsert(revenue);
+//
+//     if (error) {
+//         console.error("Error al insertar revenue:", error);
+//         throw error;
+//     }
+//     return data;
+// }
+//
+// export async function GET() {
+//     try {
+//         await seedUsers();
+//         await seedCustomers();
+//         await seedInvoices();
+//         await seedRevenue();
+//
+//         return new Response(JSON.stringify({message: 'Database seeded successfully'}), {status: 200});
+//     } catch (error: any) {
+//         return new Response(JSON.stringify({error: error.message}), {status: 500});
+//     }
+// }
